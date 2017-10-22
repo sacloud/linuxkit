@@ -25,6 +25,7 @@ func runUsage() {
 	fmt.Printf("  openstack\n")
 	fmt.Printf("  packet\n")
 	fmt.Printf("  qemu [linux]\n")
+	fmt.Printf("  sakuracloud\n")
 	fmt.Printf("  vcenter\n")
 	fmt.Printf("  vmware\n")
 	fmt.Printf("\n")
@@ -61,6 +62,8 @@ func run(args []string) {
 		runPacket(args[1:])
 	case "qemu":
 		runQemu(args[1:])
+	case "sakuracloud":
+		runSakuraCloud(args[1:])
 	case "vmware":
 		runVMware(args[1:])
 	case "vcenter":
