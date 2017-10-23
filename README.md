@@ -1,5 +1,11 @@
 # LinuxKit
 
+---
+
+This repository is folked from [linuxkit/linuxkit](https://linuxkit/linuxkit) for add [SakuraCloud](https://cloud.sakura.ad.jp/) support.
+
+---
+
 LinuxKit, a toolkit for building custom minimal, immutable Linux distributions.
 
 - Secure defaults without compromising usability
@@ -22,13 +28,10 @@ LinuxKit uses the `moby` tool for image builds, and the `linuxkit` tool for push
 Simple build instructions: use `make` to build. This will build the tools in `bin/`. Add this
 to your `PATH` or copy it to somewhere in your `PATH` eg `sudo cp bin/* /usr/local/bin/`. Or you can use `sudo make install`.
 
-If you already have `go` installed you can use `go get -u github.com/moby/tool/cmd/moby` to install
-the `moby` build tool, and `go get -u github.com/linuxkit/linuxkit/src/cmd/linuxkit` to install the `linuxkit` tool.
-
-On MacOS there is a `brew tap` available. Detailed instructions are at [linuxkit/homebrew-linuxkit](https://github.com/linuxkit/homebrew-linuxkit),
+On MacOS there is a `brew tap` available. Detailed instructions are at [sacloud/homebrew-linuxkit](https://github.com/sacloud/homebrew-linuxkit),
 the short summary is
 ```
-brew tap linuxkit/linuxkit
+brew tap sacloud/linuxkit
 brew install --HEAD moby
 brew install --HEAD linuxkit
 ```
@@ -66,6 +69,7 @@ Currently supported platforms are:
   - [Microsoft Azure](docs/platform-azure.md)
   - [OpenStack](docs/platform-openstack.md)
   - [packet.net](docs/platform-packet.md)
+  - [SakuraCloud](docs/platform-sakuracloud.md)
 
 
 #### Running the Tests
