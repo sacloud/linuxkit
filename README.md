@@ -1,6 +1,9 @@
 # LinuxKit
 
 [![CircleCI](https://circleci.com/gh/linuxkit/linuxkit.svg?style=svg)](https://circleci.com/gh/linuxkit/linuxkit)
+=======
+
+This repository is folked from [linuxkit/linuxkit](https://linuxkit/linuxkit) for add [SakuraCloud](https://cloud.sakura.ad.jp/) support.
 
 LinuxKit, a toolkit for building custom minimal, immutable Linux distributions.
 
@@ -28,12 +31,20 @@ LinuxKit uses the `linuxkit` tool for building, pushing and running VM images.
 Simple build instructions: use `make` to build. This will build the tool in `bin/`. Add this
 to your `PATH` or copy it to somewhere in your `PATH` eg `sudo cp bin/* /usr/local/bin/`. Or you can use `sudo make install`.
 
+<<<<<<< HEAD
 If you already have `go` installed you can use `go get -u github.com/linuxkit/linuxkit/src/cmd/linuxkit` to install the `linuxkit` tool.
 
 On MacOS there is a `brew tap` available. Detailed instructions are at [linuxkit/homebrew-linuxkit](https://github.com/linuxkit/homebrew-linuxkit),
 the short summary is
 ```
 brew tap linuxkit/linuxkit
+=======
+On MacOS there is a `brew tap` available. Detailed instructions are at [sacloud/homebrew-linuxkit](https://github.com/sacloud/homebrew-linuxkit),
+the short summary is
+```
+brew tap sacloud/linuxkit
+brew install --HEAD moby
+>>>>>>> 8588d4ba... Add docs for SakuraCloud
 brew install --HEAD linuxkit
 ```
 
@@ -70,9 +81,13 @@ Currently supported platforms are:
   - [Microsoft Azure](docs/platform-azure.md)
   - [OpenStack](docs/platform-openstack.md)
   - [packet.net](docs/platform-packet.md)
+<<<<<<< HEAD
 - Baremetal:
   - x86 and arm64 servers on [packet.net](docs/platform-packet.md)
   - [Raspberry Pi Model 3b](docs/platform-rpi3.md)
+=======
+  - [SakuraCloud](docs/platform-sakuracloud.md)
+>>>>>>> 8588d4ba... Add docs for SakuraCloud
 
 
 #### Running the Tests
