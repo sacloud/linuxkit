@@ -1,4 +1,4 @@
-FROM linuxkit/alpine:ad35b6ddbc70faa07e59a9d7dee7707c08122e8d AS kernel-build
+FROM linuxkit/alpine:07f7d136e427dc68154cd5edbb2b9576f9ac5213 AS kernel-build
 RUN apk add \
     argp-standalone \
     build-base \
@@ -10,8 +10,6 @@ RUN apk add \
 
 ARG KERNEL_VERSIONS
 
-# There is no simple way to copy directories with wild cards as needed
-# for patches-*. Copy the entire dir instead.
 COPY / /
 
 # Unpack kernels (download if not present)
@@ -27,12 +25,15 @@ RUN for VERSION in ${KERNEL_VERSIONS}; do \
         SERIES=${VERSION%.*}.x && \
         echo "Patching $VERSION" && \
         cd /linux-${VERSION} && \
-        set -e && for patch in /patches-${SERIES}/*.patch; do \
-            echo "Applying $patch" && \
-            patch -p1 < "$patch"; \
-        done && \
-        mv /kernel_config-${SERIES}-x86_64 arch/x86/configs/x86_64_defconfig && \
-        mv /kernel_config-${SERIES}-aarch64 arch/arm64/configs/defconfig; \
+        set -e && \
+            if [ -d /patches-${KERNEL_SERIES} ]; then \
+               for patch in /patches-${SERIES}/*.patch; do \
+                   echo "Applying $patch" && \
+                   patch -p1 < "$patch"; \
+               done; \
+            fi && \
+        mv /config-${SERIES}-x86_64 arch/x86/configs/x86_64_defconfig && \
+        mv /config-${SERIES}-aarch64 arch/arm64/configs/defconfig; \
     done
 
 ENTRYPOINT ["/bin/sh"]
